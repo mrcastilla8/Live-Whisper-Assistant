@@ -1,0 +1,12 @@
+# Core AI & Speech-to-Text
+faster-whisper>=1.0.0
+ctranslate2>=4.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+langdetect>=1.0.9
+
+# Graphical User Interface
+PyQt6>=6.6.0
+
+# Process Inspection & Low-level WASAPI Loopback
+psutil>=5.9.0

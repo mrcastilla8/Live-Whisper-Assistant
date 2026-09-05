@@ -1,0 +1,53 @@
+# ==========================================
+# Git Ignore - Live Audio Transcriber / Interpreter
+# ==========================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+
+# Heavy local AI models (HuggingFace / ONNX weights)
+model/
+*.onnx
+
+# Application Logs & Diagnostics
+*.log
+app_debug.log
+crash_faulthandler.log
+logs/
+
+# Audio captures & temporary recordings
+*.wav
+*.mp3
+*.flac
+*.m4a
+
+# C++ Build artifacts
+*.obj
+*.o
+*.pdb
+native/diag_loopback.exe
+
+# Environment & Virtualenvs
+.env
+.venv
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
