@@ -1,4 +1,4 @@
-# 🎙️ Live Whisper Assistant — Real-Time Process Loopback & AI Transcription
+# Live Whisper Assistant — Real-Time Process Loopback & AI Transcription
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Platform Windows](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-0078d6.svg)](https://www.microsoft.com/windows)
@@ -13,22 +13,22 @@ A diferencia de las herramientas convencionales basadas en micrófonos o "Mezcla
 
 ---
 
-## 🚀 Características Principales
+## Características Principales
 
-- 🎯 **Captura Selectiva por Proceso (Process Loopback):** Intercepta exclusivamente el audio de la aplicación seleccionada por PID o árbol de procesos (capturando incluso procesos hijos de navegadores multiproceso como Chrome o Edge).
-- ⚡ **Transcripción Local Ultrarrápida (CUDA):** Motor de inferencia basado en CTranslate2 y Faster-Whisper optimizado para ejecutarse en GPUs NVIDIA con 4 GB de VRAM (como la RTX 3050) en cuantización `int8_float16` con latencia inferior al segundo.
-- 🎛️ **Pipeline DSP de Voz:**
+- **Captura Selectiva por Proceso (Process Loopback):** Intercepta exclusivamente el audio de la aplicación seleccionada por PID o árbol de procesos (capturando incluso procesos hijos de navegadores multiproceso como Chrome o Edge).
+- **Transcripción Local Ultrarrápida (CUDA):** Motor de inferencia basado en CTranslate2 y Faster-Whisper optimizado para ejecutarse en GPUs NVIDIA con 4 GB de VRAM (como la RTX 3050) en cuantización `int8_float16` con latencia inferior al segundo.
+- **Pipeline DSP de Voz:**
   - **Filtro Pasa Banda Butterworth (300 Hz – 3400 Hz):** Remueve frecuencias graves de música de fondo y estática de alta frecuencia para maximizar la inteligibilidad vocal.
   - **Detección de Actividad de Voz (VAD) basada en RMS:** Buffer acumulativo con pre-roll dinámico y solapamiento contextual (*overlap*) para evitar que se corten inicios y finales de palabras.
   - **Filtro Anti-Alucinaciones:** Supresión de bucles de subtítulos y artefactos conocidos de Whisper ante segmentos de silencio prolongado.
-- 🖥️ **Interfaz Gráfica Moderna (PyQt6):**
+- **Interfaz Gráfica Moderna (PyQt6):**
   - Tema oscuro profesional con visualizador de audio animado en vivo.
   - Transcripción sincronizada en tiempo real con código de color por idioma detectado.
   - Registro y guardado automático de sesiones completas en texto formateado.
 
 ---
 
-## 🏗️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 El proyecto integra un pipeline híbrido C++ / Python que garantiza máxima velocidad de captura con baja sobrecarga de CPU y sincronización de hilos segura:
 
@@ -68,7 +68,7 @@ El proyecto integra un pipeline híbrido C++ / Python que garantiza máxima velo
 
 ---
 
-## 🧠 Retos de Ingeniería y Soluciones
+## Retos de Ingeniería y Soluciones
 
 ### 1. Captura de Audio por Proceso en Windows
 WASAPI tradicional sólo captura dispositivos completos (micrófono o parlantes). Para aislar la voz de una videollamada sin capturar el propio micrófono del usuario ni sonidos de Windows, se implementó un módulo nativo en C++ (`native/process_loopback.cpp`) que interactúa con la interfaz COM asíncrona `ActivateAudioInterfaceAsync` y `AUDIOCLIENT_ACTIVATION_PARAMS` con `AUDCLNT_ACTIVATION_TYPE_PROCESS_LOOPBACK`.
@@ -82,7 +82,7 @@ Para evitar errores de carga de `cublas64_*.dll` o `cudnn_*.dll` cuando el usuar
 
 ---
 
-## 📋 Requisitos del Sistema
+## Requisitos del Sistema
 
 - **Sistema Operativo:** Windows 10 (Build 19041 / versión 20H1 o posterior) o Windows 11.
 - **Procesador:** Intel Core i5 / AMD Ryzen 5 o superior.
@@ -92,12 +92,12 @@ Para evitar errores de carga de `cublas64_*.dll` o `cudnn_*.dll` cuando el usuar
 
 ---
 
-## ⚙️ Instalación y Puesta en Marcha
+## Instalación y Puesta en Marcha
 
 ### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/tu-usuario/live-whisper-assistant.git
-cd live-whisper-assistant
+git clone https://github.com/mrcastilla8/Live-Whisper-Assistant.git
+cd Live-Whisper-Assistant
 ```
 
 ### 2. Crear y activar un entorno virtual (recomendado)
@@ -129,7 +129,7 @@ python bootstrap.py
 
 ---
 
-## 🔍 Herramienta de Diagnóstico CLI
+## Herramienta de Diagnóstico CLI
 
 Si deseas probar la captura de audio por proceso sin abrir la interfaz gráfica, puedes utilizar el script CLI de diagnóstico:
 
@@ -146,7 +146,7 @@ python test_process_loopback.py --pid 12345 --secs 5
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```text
 ├── native/                         # Capa nativa de bajo nivel en C++
@@ -168,6 +168,6 @@ python test_process_loopback.py --pid 12345 --secs 5
 
 ---
 
-## 📄 Licencia
+## Licencia
 
 Distribuido bajo la Licencia MIT. Consulta el archivo `LICENSE` para más información.
